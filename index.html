@@ -1,137 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-    <meta Lalevin="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <meta charset="UTF-8">
+    <title>Lalevin</title>
     <style>
-        *{box-sizing: border-box;}
-        body{
-            background: #000;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            text-shadow: 0px 0px 80px;
+        body {
+            font-family: Arial, sans-serif; /* 设置字体 */
         }
-        h1{
-            margin: 0;
-            padding: 0;
-            color: #0ff;
+        .header {
+            background-color: #333; /* 设置页眉背景颜色 */
+            color: white; /* 设置页眉文字颜色 */
+            padding: 10px 0; /* 设置页眉内边距 */
+            text-align: center; /* 设置页眉文字居中对齐 */
         }
-        a{color: #fff;}
-        /* 盒子↓ */
-        p{
-            margin: 0;
+        .nav {
+            background-color: #555; /* 设置导航栏背景颜色 */
+            color: white; /* 设置导航栏文字颜色 */
         }
-        .box{
-            /* 盒子宽度↓ ---最好别改*/
-            width: 700px;
-            /* 让视频居中对齐↓---最好别动 */
-            text-align: center;
-            /* border: 1px solid #f00; */
-            color: #fff;
-            
-            position: absolute;
-            margin: 20px auto 0;
-            top: 20px;
-            left: 0;
-            right: 0;
+        .nav ul {
+            padding: 0; /* 设置导航栏无内边距 */
+            list-style: none; /* 设置导航栏无列表样式 */
+            text-align: center; /* 设置导航栏文字居中对齐 */
         }
-        /* 图片样式↓ */
-
-        img{
-            /* 视频宽度↓ ---最好不要大于上面盒子的宽度*/
-            width: 700px;
-            height: 390px;
-            /* 灰色的描边↓ ---px是粗细 solid是实线 #555是颜色代码 可以百度html颜色代码修改*/
-            border: 2px solid #222;
-            /* 图片的圆角 */
-            border-radius: 5px;
-            /* 动画时间 */
-            transition: 0.8s;
+        .nav ul li {
+            display: inline; /* 设置导航栏列表项内联显示 */
+            margin: 0 10px; /* 设置导航栏列表项间距 */
         }
-        .img2:hover{border: 2px solid #980b18}
-
-        .box>div{
-            padding: 20px;
-            /* border: 1px solid #f00; */
+        .nav ul li a {
+            color: white; /* 设置导航栏链接文字颜色 */
+            text-decoration: none; /* 设置导航栏链接无下划线 */
         }
-        .szj{
-            position: absolute;
-            top: 0;
-            left: 0;
-            color: #fff;
-            padding: 5px;
-            border: 1px solid #eee;
-            background-color: rgb(0,0,0,0.7)
+        .content {
+            margin: 15px; /* 设置内容区域外边距 */
         }
-        .yl{
-            display: inline;
-            border-bottom:1px dotted #0ff;
+        .post {
+            border: 1px solid #e1e1e1; /* 设置帖子边框 */
+            padding: 10px; /* 设置帖子内边距 */
+            margin-bottom: 15px; /* 设置帖子之间间距 */
         }
-        .yl a{
-            text-decoration: none;
-            color:#c6d491;
-            
+        .post h2 {
+            color: #333; /* 设置帖子标题颜色 */
         }
-        .yl span{
-            margin-right: 8px;
+        .post p {
+            color: #666; /* 设置帖子内容颜色 */
+        }
+        .footer {
+            background-color: #333; /* 设置页脚背景颜色 */
+            color: white; /* 设置页脚文字颜色 */
+            text-align: center; /* 设置页脚文字居中对齐 */
+            padding: 5px 0; /* 设置页脚内边距 */
         }
     </style>
 </head>
 <body>
-    <canvas id="canvas"></canvas>
-   
-            <h1></h1>
-
-            <br>
-
-    <!-- 音乐部分 -->
-    <embed height="0" width="0" src="https://m.ximalaya.com/sound/477877435"></embed>
-
-    <!-- 以下js -->
-
+    <div class="header">
+        <h1>欢迎来到NACG</h1>
+    </div>
+    <div class="nav">
+        <ul>
+            <li><a href="#">首页</a></li>
+            <li><a href="#">文章</a></li>
+            <li><a href="#">关于我</a></li>
+            <li><a href="#">联系方式</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="post">
+            <h2>文章标题</h2>
+            <p>这里是文章内容...</p>
+        </div>
+        <!-- 动态添加更多帖子 -->
+    </div>
+    <div class="footer">
+        <p>&copy; 2023 我的黑客风博客</p>
+    </div>
     <script>
-    var canvas = document.getElementById('canvas');
-		var ctx = canvas.getContext('2d');
+        // 动态添加帖子的示例代码
+        const posts = [
+            { title: '文章标题1', content: '这里是文章内容1...' },
+            { title: '文章标题2', content: '这里是文章内容2...' },
+            // 更多帖子对象...
+        ];
 
+        const contentDiv = document.querySelector('.content');
 
-		canvas.height = window.innerHeight;
-		canvas.width = window.innerWidth;
-        // 下面的''就是代码雨的文字
-		var texts = 'Im Lalevin Martin'.split('');
-                var texts = 'Welcome to NACG'.split('');
-
-		var fontSize = 16;
-		var columns = canvas.width/fontSize;
-		// 用于计算输出文字时坐标，所以长度即为列数
-		var drops = [];
-		//初始值
-		for(var x = 0; x < columns; x++){
-			drops[x] = 1;
-		}
-
-		function draw(){
-			//让背景逐渐由透明到不透明
-			ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-			ctx.fillRect(0, 0, canvas.width, canvas.height);
-			//文字颜色
-			ctx.fillStyle = '#0F0';
-			ctx.font = fontSize + 'px arial';
-			//逐行输出文字
-			for(var i = 0; i < drops.length; i++){
-				var text = texts[Math.floor(Math.random()*texts.length)];
-				ctx.fillText(text, i*fontSize, drops[i]*fontSize);
-
-				if(drops[i]*fontSize > canvas.height || Math.random() > 0.95){
-					drops[i] = 0;
-				}
-
-				drops[i]++;
-			}
-		}
-	setInterval(draw, 33);
-</script>
+        posts.forEach(post => {
+            const postDiv = document.createElement('div');
+            postDiv.classList.add('post');
+            postDiv.innerHTML = `<h2>${post.title}</h2><p>${post.content}</p>`;
+            contentDiv.appendChild(postDiv);
+        });
+    </script>
 </body>
 </html>
